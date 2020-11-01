@@ -92,7 +92,7 @@ class Roles extends Component {
   >
     <Modal.Header closeButton>
       <Modal.Title id="example-modal-sizes-title-lg">
-          Add a new excellent movie
+          Add a new role
       </Modal.Title>
     </Modal.Header>
     <Modal.Body>
@@ -120,7 +120,7 @@ class RoleModal extends Component {
           <form>
               <fieldset disabled={this.state.viewDetails}>
                 <div className="form-group mb-3">
-                <label for="Trailerlink">Enter new award </label>
+                <label for="Trailerlink">Enter new role </label>
                 <input type="text" className="form-control"/>
                 </div>
                 </fieldset>

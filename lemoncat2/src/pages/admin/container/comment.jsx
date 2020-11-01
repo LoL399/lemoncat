@@ -39,7 +39,7 @@ class CommentInfo extends Component {
             <div className="row justify-content-center">
         <div className="col-12">
           <div className="row mb-4 items-align-center">
-            <h2 className="mb-2 page-title">Review control</h2>
+            <h2 className="mb-2 page-title">Comments control</h2>
               <div className="col-md-auto ml-auto text-right">
                 <button type="button" className="btn"><span className="fe fe-refresh-ccw fe-24 text-muted" ></span></button>
               </div>
