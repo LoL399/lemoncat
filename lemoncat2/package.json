@@ -20,8 +20,10 @@
     "react-datepicker": "^3.3.0",
     "react-dom": "^17.0.0",
     "react-draft-wysiwyg": "^1.14.5",
+    "react-multi-carousel": "^2.5.5",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.4",
+    "react-slick": "^0.27.12",
     "react-year-picker": "^0.3.7"
   },
   "scripts": {
@@ -46,6 +48,7 @@
     ]
   },
   "devDependencies": {
+    "@types/bootstrap": "^5.0.0",
     "@types/react-datepicker": "^3.1.1"
   }
 }

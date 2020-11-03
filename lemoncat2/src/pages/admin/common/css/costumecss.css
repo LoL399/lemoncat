@@ -6,7 +6,8 @@
     --input-padding-y: .75rem;
   }
 body,html,#root{
-  height:100%
+  height:100%;
+  background-color: aliceblue;
 }
   
   .card-signin {

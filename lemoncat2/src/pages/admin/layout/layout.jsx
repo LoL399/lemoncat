@@ -68,7 +68,7 @@ class AdminPage extends Component {
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span className="avatar avatar-sm mt-2">
-                            <img src="" alt="..." className="avatar-img rounded-circle"/>
+                            <img src="https://image.freepik.com/free-vector/businessman-character-avatar-icon-vector-illustration-design_24877-18271.jpg" alt="..." className="avatar-img rounded-circle"/>
                         </span>
                         </a>
                         <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
