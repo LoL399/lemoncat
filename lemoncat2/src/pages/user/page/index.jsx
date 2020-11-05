@@ -22,7 +22,7 @@ class MainPage extends Component {
 		</div>
 	</div>
 	</section>
-	<section className="content bg-dark">
+	<section className="content homecolor">
 	<div className="content__head">
 			<div className="container">
 				<div className="row">
@@ -63,7 +63,7 @@ class MainPage extends Component {
 					<div className="row">
 
 						<div className="col-6 col-sm-12 col-lg-6">
-							<div className="card card--list bg-dark border-0">
+							<div className="card card--list homecolor border-0">
 								<div className="row">
 									<div className="col-12 col-sm-4">
 										<div className="card__cover">

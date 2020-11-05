@@ -1,0 +1,18 @@
+.pointercursor{
+    cursor: pointer;
+}
+:root {
+    --input-padding-x: 1.5rem;
+    --input-padding-y: .75rem;
+  }
+body,html,#root{
+  height:100%;
+  background-color: aliceblue;
+}
+ .antihome{
+   margin-top: -10%;
+ }
+
+ .homecolor{
+   background-color: rgb(40, 40, 45) !important;
+ }

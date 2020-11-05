@@ -12,7 +12,7 @@ import "../common/css/css-default-skin.css"
 import "../common/css/css-main.css"
 import 'bootstrap/dist/js/bootstrap.js';
 import FooterSection from './footer';
-import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import routes from"../common/route"
 
 

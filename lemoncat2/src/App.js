@@ -12,10 +12,10 @@ function App() {
   return (
 
         <Switch>
-          <Route path='/home' exact component={ClientPage}/>
+          <Route path='/home' component={ClientPage}/>
           <Route path='/login' exact component={Login} />
           <Route path='/admin' component={AdminPage}/>
-          <Route path='/404' component={NoFound} />
+          <Route path='/404' exact component={NoFound} />
           <Redirect to='/404'/>
           {/* Private Route soon */}
       </Switch>

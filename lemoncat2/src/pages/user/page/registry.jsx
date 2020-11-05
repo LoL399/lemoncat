@@ -12,7 +12,9 @@ class RegistryUser extends Component {
 						<form action="#" className="sign__form">
 							<a href="index.html" className="sign__logo">
                                 <h1 className="text-danger">LOGO</h1></a>
-
+							
+							<div className="sign__group">
+							<input type="text" className="sign__input" placeholder="UserName"/></div>
 
 							<div className="sign__group">
 								<input type="text" className="sign__input" placeholder="Email"/></div>
@@ -20,8 +22,6 @@ class RegistryUser extends Component {
 							<div className="sign__group">
 								<input type="password" className="sign__input" placeholder="Password"/></div>
 
-                            <div className="sign__group">
-								<input type="text" className="sign__input" placeholder="UserName"/></div>
                                 <div className="sign__group">
 								<input type="text" className="sign__input" placeholder="Phone Number"/></div>
 							<button className="sign__btn" type="button">Tạo tài khoản</button>
