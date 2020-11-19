@@ -19,7 +19,7 @@ import routes from"../common/route"
 class ClientPage extends Component {
     state = {  }
     render() { 
-        return ( <div>
+        return ( <div className="homecolor">
             <NavBar/>
 
                 <Switch>
@@ -35,7 +35,7 @@ class ClientPage extends Component {
                             ):null;
                         })
                         }
-                    <Redirect exact to="/admin/"/> 
+                    <Redirect exact to="/404"/> 
                 </Switch>
 
             <FooterSection/>

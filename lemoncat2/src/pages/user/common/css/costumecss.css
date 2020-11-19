@@ -10,9 +10,43 @@ body,html,#root{
   background-color: aliceblue;
 }
  .antihome{
-   margin-top: -10%;
+   margin-top: 2%;
  }
 
  .homecolor{
    background-color: rgb(40, 40, 45) !important;
  }
+ .owlSlide{
+  width: 360px !important; margin-right: 50px !important;
+ }
+
+ .newest-news{
+
+   height: 400px !important;
+ }
+ .newest-news2{
+
+  height: 200px !important;
+}
+
+.newest-news:hover, .newest-news2:hover {
+  border-image: linear-gradient(315deg, #fc5296 0%, #f67062 74%);
+  border-style: solid;
+  border-image-slice: 1;
+}
+.news_wrap{
+  border-bottom:  solid white !important;
+
+}
+.news_wrap:hover{
+  border-bottom: solid #fc5296 !important;
+  color: white;
+}
+
+.labelGradient {
+  background: -webkit-linear-gradient(315deg, #fc5296 0%, #f67062 74%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+ 

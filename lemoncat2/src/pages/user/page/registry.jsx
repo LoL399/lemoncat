@@ -3,10 +3,11 @@ import React, { Component } from 'react';
 class RegistryUser extends Component {
     state = {  }
     render() { 
-        return ( <div className="sign section--bg home">
+        return ( 
+		<div className="sign section--bg homecolor">
 		<div className="container">
 			<div className="row">
-				<div className="col-12">
+				<div className="col-12 mt-5">
 					<div className="sign__content">
 
 						<form action="#" className="sign__form">

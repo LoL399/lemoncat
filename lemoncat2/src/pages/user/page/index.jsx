@@ -9,16 +9,25 @@ class MainPage extends Component {
 		
         return ( 	
 		<div>
-        <section className="home">
+        <section className="home antihome">
 		<div className="container">
 			<div className="row">
-				<div className="col-12">
-					<h1 className="home__title"><b>	CHƯƠNG TRÌNH MỚI</b> CỦA MÙA</h1>
-					<CarouselManager/>
+				<div class="col-12 antihome">
+					<h1 class="home__title">CHƯƠNG TRÌNH MỚI CỦA MÙA</h1>
 				</div>
-
 				<div className="col-12">
-			</div>
+					<div className=" owl-carousel home__carousel owl-loaded">
+						
+						<div className="owl-stage-outer ">
+							<div className="owl-stage">
+							<CarouselManager/>
+							</div>
+
+
+						</div>
+						
+					</div>
+				</div>
 		</div>
 	</div>
 	</section>
@@ -61,7 +70,7 @@ class MainPage extends Component {
 			<div className="tab-content" id="myTabContent">
 				<div className="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="1-tab">
 					<div className="row">
-
+						{/* item */}
 						<div className="col-6 col-sm-12 col-lg-6">
 							<div className="card card--list homecolor border-0">
 								<div className="row">
@@ -96,6 +105,7 @@ class MainPage extends Component {
 								</div>
 							</div>
 						</div>
+						
 
 
 
@@ -103,7 +113,26 @@ class MainPage extends Component {
 				</div>
 				
 				<div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="2-tab">
-					<h1>Hi there</h1>
+				<div class="col-sm-6">
+                <div class="card homecolor border-0 mr-2">
+                <div class="row">
+                    <div class=" col-sm-6">
+                        <img src={cover} className=" mx-auto d-block w-75 h-75"/>
+                        
+                    </div>
+                    <div class=" col-sm-6">  
+                    <div class="card-body">
+                       
+                        <div className="card__description card__description--details b-description_readmore_ellipsis text-light" >
+                            <h3 className="text-light">It is a long established fact that a reader.</h3>
+                        </div>
+                        <small className="text-light">09/09/2020</small>
+                    </div>
+                    </div>
+ 
+                    </div>
+                </div>
+            </div>
 				</div>
 			</div>
 		</div>
@@ -135,50 +164,93 @@ class CarouselManager extends Component {
 			  items: 1
 			}
 		  };
-		return ( <Carousel responsive={responsive}>
+		return ( 
+		<Carousel responsive={responsive} className="owl-stage">
 			{/* item */}
-			<div className="card card--big home text-white border-0">
-				<div className="card__cover">
-					<img src={cover} alt="1"/><a href="#" className="card__play">
-						<i className="icon ion-ios-play"></i></a>
+			<div className="owl-item cloned owlSlide">
+				<div className="item">
+					<div className="card card--big homecolor border-0">
+						<div className="card__cover">
+							<img src={cover} alt="1" /><a href="#" className="card__play">
+								<i className="icon ion-ios-play"></i></a>
+						</div>
+						<div className="card__content text-center homecolor">
+							<h3 className="card__title"><a href="#">I dream in Another Language</a></h3>
+							<span className="card__rate "><i className="icon ion-ios-star text-right"></i>4.4</span>
+						</div>
+					</div>
+
 				</div>
-				<div className="card__content text-center ">
-					<h3 className="card__title"><a href="#">I dream in Another Language</a></h3>
-					<span className="card__rate "><i className="icon ion-ios-star text-right"></i>4.4</span>
+
+			</div>
+
+			{/* item */}
+			<div className="owl-item cloned owlSlide">
+				<div className="item">
+					<div className="card card--big homecolor border-0">
+						<div className="card__cover">
+							<img src={cover} alt="1" /><a href="#" className="card__play">
+								<i className="icon ion-ios-play"></i></a>
+						</div>
+						<div className="card__content text-center homecolor">
+							<h3 className="card__title"><a href="#">I dream in Another Language</a></h3>
+							<span className="card__rate "><i className="icon ion-ios-star text-right"></i>4.4</span>
+						</div>
+					</div>
+
 				</div>
+
 			</div>
 			{/* item */}
-			<div className="card card--big home text-white border-0">
-				<div className="card__cover">
-					<img src={cover} alt="1"/><a href="#" className="card__play">
-						<i className="icon ion-ios-play"></i></a>
+			<div className="owl-item cloned owlSlide">
+				<div className="item">
+					<div className="card card--big homecolor border-0">
+						<div className="card__cover">
+							<img src={cover} alt="1" /><a href="#" className="card__play">
+								<i className="icon ion-ios-play"></i></a>
+						</div>
+						<div className="card__content text-center homecolor">
+							<h3 className="card__title"><a href="#">I dream in Another Language</a></h3>
+							<span className="card__rate "><i className="icon ion-ios-star text-right"></i>4.4</span>
+						</div>
+					</div>
+
 				</div>
-				<div className="card__content text-center ">
-					<h3 className="card__title"><a href="#">I dream in Another Language</a></h3>
-					<span className="card__rate "><i className="icon ion-ios-star text-right"></i>4.4</span>
-				</div>
+
 			</div>
-							{/* item */}
-							<div className="card card--big home text-white border-0">
-				<div className="card__cover">
-					<img src={cover} alt="1"/><a href="#" className="card__play">
-						<i className="icon ion-ios-play"></i></a>
+			{/* item */}
+			<div className="owl-item cloned owlSlide">
+				<div className="item">
+					<div className="card card--big homecolor border-0">
+						<div className="card__cover">
+							<img src={cover} alt="1" /><a href="#" className="card__play">
+								<i className="icon ion-ios-play"></i></a>
+						</div>
+						<div className="card__content text-center homecolor">
+							<h3 className="card__title"><a href="#">I dream in Another Language</a></h3>
+							<span className="card__rate "><i className="icon ion-ios-star text-right"></i>4.4</span>
+						</div>
+					</div>
+
 				</div>
-				<div className="card__content text-center ">
-					<h3 className="card__title"><a href="#">I dream in Another Language</a></h3>
-					<span className="card__rate "><i className="icon ion-ios-star text-right"></i>4.4</span>
-				</div>
+
 			</div>
-							{/* item */}
-							<div className="card card--big home text-white border-0">
-				<div className="card__cover">
-					<img src={cover} alt="1"/><a href="#" className="card__play">
-						<i className="icon ion-ios-play"></i></a>
+			{/* item */}
+			<div className="owl-item cloned owlSlide">
+				<div className="item">
+					<div className="card card--big homecolor border-0">
+						<div className="card__cover">
+							<img src={cover} alt="1" /><a href="#" className="card__play">
+								<i className="icon ion-ios-play"></i></a>
+						</div>
+						<div className="card__content text-center homecolor">
+							<h3 className="card__title"><a href="#">I dream in Another Language</a></h3>
+							<span className="card__rate "><i className="icon ion-ios-star text-right"></i>4.4</span>
+						</div>
+					</div>
+
 				</div>
-				<div className="card__content text-center ">
-					<h3 className="card__title"><a href="#">I dream in Another Language</a></h3>
-					<span className="card__rate "><i className="icon ion-ios-star text-right"></i>4.4</span>
-				</div>
+
 			</div>
 			</Carousel> );
 	}

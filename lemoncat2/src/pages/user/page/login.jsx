@@ -8,7 +8,7 @@ class LoginUser extends Component {
 
     render() { 
         return ( 
-        <div className="sign section--bg bg-dark">
+        <div className="sign section--bg homecolor">
 		<div className="container">
 			<div className="row">
 				<div className="col-12">

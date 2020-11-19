@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -12,16 +14,20 @@
     "datatables.net-dt": "^1.10.22",
     "draft-js": "^0.11.7",
     "jquery": "^3.5.1",
+    "material-ui-rating": "^4.2.0",
     "popper.js": "^1.16.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-bootstrap-dialog": "^0.13.0",
+    "react-compound-slider": "^3.1.0",
     "react-date-picker": "^8.0.3",
     "react-datepicker": "^3.3.0",
     "react-dom": "^17.0.1",
     "react-draft-wysiwyg": "^1.14.5",
     "react-multi-carousel": "^2.5.5",
+    "react-owl-carousel": "^2.3.1",
     "react-player": "^2.6.2",
+    "react-rater": "^5.1.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.4",
     "react-slick": "^0.27.12",
@@ -52,6 +58,7 @@
   },
   "devDependencies": {
     "@types/bootstrap": "^5.0.0",
-    "@types/react-datepicker": "^3.1.1"
+    "@types/react-datepicker": "^3.1.1",
+    "expose-loader": "^1.0.1"
   }
 }
