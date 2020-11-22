@@ -9,10 +9,10 @@ class MainPage extends Component {
 		
         return ( 	
 		<div>
-        <section className="home antihome">
+        <section className="home p-3">
 		<div className="container">
 			<div className="row">
-				<div class="col-12 antihome">
+				<div class="col-12">
 					<h1 class="home__title">CHƯƠNG TRÌNH MỚI CỦA MÙA</h1>
 				</div>
 				<div className="col-12">
@@ -37,7 +37,7 @@ class MainPage extends Component {
 				<div className="row">
 					<div className="col-12">
 
-						<h2 className="content__title">New items</h2>
+						<h2 className="content__title">MỚI - NÓNG - SỐT DẺO</h2>
 
 						<ul className="nav nav-tabs content__tabs border-0" id="content__tabs" role="tablist">
 							<li className="nav-item">
@@ -125,8 +125,11 @@ class MainPage extends Component {
                        
                         <div className="card__description card__description--details b-description_readmore_ellipsis text-light" >
                             <h3 className="text-light">It is a long established fact that a reader.</h3>
+							<small className="text-light">09/09/2020</small>
                         </div>
-                        <small className="text-light">09/09/2020</small>
+
+						<button className="sign__btn" type="button">Đọc thêm →</button>
+
                     </div>
                     </div>
  

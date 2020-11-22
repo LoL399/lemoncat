@@ -3,13 +3,21 @@ import cover from '../common/images/covers-cover.jpg';
 import '../common/css/costumecss.css'
 import ReactPlayer from 'react-player'
 import Rating  from 'material-ui-rating'
+import bg from '../common/images/home-home__bg.jpg'
 
 class MovieDetail extends Component {
-    state = {  }
+	state = { isLogin: false }
+	componentDidMount(){
+
+	}
+
     render() { 
         return ( 
 			<div className="h-100">
             <section className="section details homecolor border-0 ">
+				<div className="detail__bg gbMovie">
+
+				</div>
                 <div className="container">
 					<div className="card card--details card--series homecolor border-0">
 						<div className="row">
@@ -64,19 +72,22 @@ class MovieDetail extends Component {
 				<div className="row">
 					<div className="col-12">
 
-						<h2 className="content__title">Discover</h2>
+						<h2 className="content__title">Khám phá</h2>
 
 						<ul className="nav nav-tabs content__tabs border-0" id="content__tabs" role="tablist">
 							<li className="nav-item">
-								<a className="nav-link active" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Comments</a>
+								<a className="nav-link active" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Bình luận</a>
 							</li>
 
 							<li className="nav-item">
-								<a className="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">Reviews</a>
+								<a className="nav-link" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">Đánh giá</a>
 							</li>
 
 							<li className="nav-item">
 								<a className="nav-link" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">Photos</a>
+							</li>
+							<li className="nav-item">
+								<a className="nav-link" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">Diễn viên/Đạo diễn</a>
 							</li>
 						</ul>
 
@@ -88,11 +99,10 @@ class MovieDetail extends Component {
 
 							<div className="content__mobile-tabs-menu dropdown-menu" aria-labelledby="mobile-tabs">
 								<ul className="nav nav-tabs" role="tablist">
-									<li className="nav-item" data-value="comments"><a className="nav-link active" id="1-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Comments</a></li>
-
-									<li className="nav-item" data-value="reviews"><a className="nav-link" id="2-tab" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">Reviews</a></li>
-
+									<li className="nav-item" data-value="comments"><a className="nav-link active" id="1-tab" data-toggle="tab" href="#tab-1" role="tab" aria-controls="tab-1" aria-selected="true">Bình luận</a></li>
+									<li className="nav-item" data-value="reviews"><a className="nav-link" id="2-tab" data-toggle="tab" href="#tab-2" role="tab" aria-controls="tab-2" aria-selected="false">Đánh giá</a></li>
 									<li className="nav-item" data-value="photos"><a className="nav-link" id="3-tab" data-toggle="tab" href="#tab-3" role="tab" aria-controls="tab-3" aria-selected="false">Photos</a></li>
+									<li className="nav-item" data-value="photos"><a className="nav-link" id="4-tab" data-toggle="tab" href="#tab-4" role="tab" aria-controls="tab-4" aria-selected="false">Diễn viên/ Đạo diễn</a></li>
 								</ul>
 							</div>
 						</div>
@@ -111,12 +121,20 @@ class MovieDetail extends Component {
 							{/* Hey listen */}
 								<ReviewArea login={true}/>
 							</div>
+							<div className="tab-pane fade " id="tab-3" role="tabpanel" aria-labelledby="3-tab">
+							{/* Hey listen */}
+								<PhotoList />
+							</div>
+							<div className="tab-pane fade " id="tab-4" role="tabpanel" aria-labelledby="4-tab">
+							{/* Hey listen */}
+								<PersonInvol />
+							</div>
 				
 						</div>
 					</div>
 					<div className="col-12 col-lg-4 col-xl-4">
 						<div className="col-12">
-							<h2 className="section__title section__title--sidebar">You may also like...</h2>
+							<h2 className="section__title section__title--sidebar">Bạn nên xem qua ...</h2>
 						</div>
 						{/* Item */}
 						<div className="col-sm-7 col-lg-9 mx-auto">
@@ -164,14 +182,9 @@ class CommentArea extends Component {
 						</div>
 						<p className="comments__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 						<div className="comments__actions">
-							<div className="comments__rate">
-								<button type="button"><i className="icon ion-md-thumbs-up"></i>12</button>
 
-								<button type="button">7<i className="icon ion-md-thumbs-down"></i></button>
-							</div>
+							<button type="button"><i className="icon ion-ios-trash"></i>Xóa</button>
 
-							<button type="button"><i className="icon ion-ios-share-alt"></i>Reply</button>
-							<button type="button"><i className="icon ion-ios-quote"></i>Quote</button>
 						</div>
 					</li>
 					<li className="comments__item">
@@ -181,16 +194,7 @@ class CommentArea extends Component {
 							<span className="comments__time">30.08.2018, 17:53</span>
 						</div>
 						<p className="comments__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-						<div className="comments__actions">
-							<div className="comments__rate">
-								<button type="button"><i className="icon ion-md-thumbs-up"></i>12</button>
 
-								<button type="button">7<i className="icon ion-md-thumbs-down"></i></button>
-							</div>
-
-							<button type="button"><i className="icon ion-ios-share-alt"></i>Reply</button>
-							<button type="button"><i className="icon ion-ios-quote"></i>Quote</button>
-						</div>
 					</li>
 
 					
@@ -198,8 +202,8 @@ class CommentArea extends Component {
 				{
 					this.state.logIn === true ? 				
 					<form action="#" className="form">
-					<textarea id="text" name="text" className="form__textarea" placeholder="Add comment"></textarea>
-					<button type="button" className="form__btn">Send</button>
+					<textarea id="text" name="text" className="form__textarea" placeholder="Bình luận ..."></textarea>
+					<button type="button" className="form__btn">Đăng</button>
 					</form>
 					:
 					<button className="sign__btn" type="button">Đăng nhập để có thể bình luận</button>
@@ -244,16 +248,23 @@ class ReviewArea extends Component {
 						</div>
 						<p className="reviews__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 					</li>
+					<div class="comments__actions">
+					<button type="button"><i class="icon ion-ios-share-alt"></i>Phản hồi</button>
 
-					<li className="reviews__item">
-						<div className="reviews__autor">
-							<img className="reviews__avatar" src="images/img-user.svg" alt=""/>
-							<span className="reviews__name">Best Marvel movie in my opinion</span>
-							<span className="reviews__time">24.08.2018, 17:53 by John Doe</span>
-
-							<span className="reviews__rating"><i className="icon ion-ios-star"></i>9.0</span>
+					</div>
+					{/* Reply */}
+					<li class="comments__item comments__item--answer">
+						<div class="comments__autor">
+							<img class="comments__avatar" src="images/img-user.svg" alt=""/>
+							<span class="comments__name">John Doe</span>
+							<span class="comments__time">24.08.2018, 16:41</span>
 						</div>
-						<p className="reviews__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+						<p class="comments__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+						<div class="comments__actions">
+
+							<button type="button"><i class="icon ion-ios-share-alt"></i>Xóa</button>
+							<button type="button"><i class="icon ion-ios-quote"></i>Quote</button>
+						</div>
 					</li>
 
 					<li className="reviews__item">
@@ -262,53 +273,19 @@ class ReviewArea extends Component {
 							<span className="reviews__name">Best Marvel movie in my opinion</span>
 							<span className="reviews__time">24.08.2018, 17:53 by John Doe</span>
 
-							<span className="reviews__rating"><i className="icon ion-ios-star"></i>7.5</span>
+							<span className="reviews__rating"><i className="icon ion-ios-star"></i>9.0</span>
 						</div>
 						<p className="reviews__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 					</li>
 				</ul>
 
 			<div className="reviews">
-				<ul className="reviews__list">
-					<li className="reviews__item">
-						<div className="reviews__autor">
-							<img className="reviews__avatar" src="images/img-user.svg" alt=""/>
-							<span className="reviews__name">Best Marvel movie in my opinion</span>
-							<span className="reviews__time">24.08.2018, 17:53 by John Doe</span>
-
-							<span className="reviews__rating"><i className="icon ion-ios-star"></i>8.4</span>
-						</div>
-						<p className="reviews__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-					</li>
-
-					<li className="reviews__item">
-						<div className="reviews__autor">
-							<img className="reviews__avatar" src="images/img-user.svg" alt=""/>
-							<span className="reviews__name">Best Marvel movie in my opinion</span>
-							<span className="reviews__time">24.08.2018, 17:53 by John Doe</span>
-
-							<span className="reviews__rating"><i className="icon ion-ios-star"></i>9.0</span>
-						</div>
-						<p className="reviews__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-					</li>
-
-					<li className="reviews__item">
-						<div className="reviews__autor">
-							<img className="reviews__avatar" src="images/img-user.svg" alt=""/>
-							<span className="reviews__name">Best Marvel movie in my opinion</span>
-							<span className="reviews__time">24.08.2018, 17:53 by John Doe</span>
-
-							<span className="reviews__rating"><i className="icon ion-ios-star"></i>7.5</span>
-						</div>
-						<p className="reviews__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-					</li>
-				</ul>
 
 
 				{this.state.logIn === true ?				
 				<form action="#" className="form">
-					<input type="text" className="form__input" placeholder="Title"/>
-					<textarea className="form__textarea" placeholder="Review"></textarea>
+					<input type="text" className="form__input" placeholder="Tựa đề bài đánh giá"/>
+					<textarea className="form__textarea" placeholder="Đánh giá"></textarea>
 					<div className="form__slider">
 					<Rating
 						name="simple-controlled"
@@ -322,7 +299,7 @@ class ReviewArea extends Component {
 						/>
 						
 					</div>
-					<button type="button" className="form__btn">Send</button>
+					<button type="button" className="form__btn">Đăng</button>
 				</form>: <button className="sign__btn" type="button">Đăng nhập để có thể đánh giá</button>
 				}
 				
@@ -334,6 +311,82 @@ class ReviewArea extends Component {
 	}
 }
 
+class PhotoList extends Component {
+	state = {  }
+	render() { 
+		return ( 
+			<div class="gallery" itemscope="" data-pswp-uid="1">
+				<div class="row">
 
+					<figure class="col-12 col-sm-6 col-xl-4" itemprop="associatedMedia" itemscope="">
+						<a href="images/gallery-project-1.jpg" itemprop="contentUrl" data-size="1920x1280">
+							<img src={cover} itemprop="thumbnail" alt="Image description"/>
+						</a>
+						<figcaption itemprop="caption description">Some image caption 1</figcaption>
+					</figure>
+				</div>
+			</div>
+		 );
+	}
+}
+class PersonInvol extends Component {
+	state = {  }
+	render() { 
+		return ( 
+			<div className="container">
+				<h4 className="content__title">Diễn viên tham gia</h4>
+				<div className="row">
+				
+				<div class="col-sm-6">
+                <div class="card homecolor border-0 mr-2">
+                <div class="row">
+                    <div class=" col-sm-6">
+                        <img src={cover} className="img-thumbnail mx-auto d-block w-75 h-75"/>
+                        
+                    </div>
+                    <div class=" col-sm-6">  
+                    <div class="card-body">
+                       
+                        <div className=" text-light" >
+                            It is a long established fact that a reader.
+                        </div>
+                        <small className="text-light">09/09/2020</small>
+                    </div>
+                    </div>
  
+                    </div>
+                </div>
+            </div>
+
+			</div>
+			<h4 className="content__title">Đạo diễn</h4>
+			<div className="row">
+				
+				<div class="col-sm-6">
+                <div class="card homecolor border-0 mr-2">
+                <div class="row">
+                    <div class=" col-sm-6">
+                        <img src={cover} className="img-thumbnail mx-auto d-block w-75 h-75"/>
+                        
+                    </div>
+                    <div class=" col-sm-6">  
+                    <div class="card-body">
+                       
+                        <div className="text-light" >
+                            It is a long established fact that a reader.
+                        </div>
+                        <small className="text-light">09/09/2020</small>
+                    </div>
+                    </div>
+ 
+                    </div>
+                </div>
+            </div>
+			</div>
+			</div>
+		 );
+	}
+}
+
+
 export default MovieDetail;

@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import cover from '../common/images/covers-cover.jpg';
+import { Link } from "react-router-dom";
 class NewsCatalog extends Component {
     state = {  }
     render() { 
         return ( 
             <div>
-            <section className="section section--first section--bg homecolor" ><div className="container">
+            <section className="section section--first section--bg homecolor p-0" ><div className="container">
                 <div className="row">
                     <div className="col-12">
                         <div className="section__wrap">
-                            <h2 className="section__title">Catalog grid</h2>
-                            <ul className="breadcrumb homecolor"><li className="breadcrumb__item"><a href="#">Home</a></li>
-                                <li className="breadcrumb__item breadcrumb__item--active">Catalog grid</li>
+                            <h2 className="section__title">Tin mới nhất hôm nay</h2>
+                            <ul className="breadcrumb homecolor"><li className="breadcrumb__item"><Link to="home/">Trang chủ</Link></li>
+                                <li className="breadcrumb__item breadcrumb__item--active">Tin tức mới</li>
                             </ul></div>
                     </div>
                 </div>
@@ -60,19 +61,22 @@ class NewsCatalog extends Component {
 
             {/* Item */}
             <div class="col-sm-6">
-                <div class="card homecolor border-0 news_wrap mr-2">
+                <div class="card homecolor border-0 mr-2">
                 <div class="row">
                     <div class=" col-sm-6">
-                        <img src={cover} className="img-thumbnail mx-auto d-block w-75 h-75"/>
+                        <img src={cover} className=" mx-auto d-block w-75 h-75"/>
                         
                     </div>
                     <div class=" col-sm-6">  
                     <div class="card-body">
                        
-                        <div className="card__description card__description--details b-description_readmore_ellipsis text-light" >
-                            It is a long established fact that a reader.
+                        <div className="text-light" >
+                            <h3 className="text-light">It is a long established fact that a reader.</h3>
+							<small className="text-light">09/09/2020</small>
                         </div>
-                        <small className="text-light">09/09/2020</small>
+
+						<button className="sign__btn" type="button">Đọc thêm →</button>
+
                     </div>
                     </div>
  

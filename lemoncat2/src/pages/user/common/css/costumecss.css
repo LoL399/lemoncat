@@ -8,6 +8,7 @@
 body,html,#root{
   height:100%;
   background-color: aliceblue;
+  font-family: Arial, Helvetica, sans-serif !important;
 }
  .antihome{
    margin-top: 2%;
@@ -48,5 +49,27 @@ body,html,#root{
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
+.logoLemon{
+  height: auto;
+  width: 200px;
+}
+.linear-wipe {
+  text-align: center;
+  
+  background: linear-gradient(315deg, #fc5296 0%, #f67062 74%);;
+  background-size: 200% auto;
+  
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
  
+.bgMovie{
+  background-image: url(../images/home-home__bg.jpg) center center / cover no-repeat;
+}
+.newshr{
+  background-image: -webkit-linear-gradient(315deg, #fc5296 0%, #f67062 74%);
+  border: 0;
+  height: 1px;
+  }

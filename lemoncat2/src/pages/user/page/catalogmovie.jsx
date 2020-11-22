@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import cover from '../common/images/covers-cover.jpg';
-
+import { Link } from "react-router-dom";
 class MovieCatalog extends Component {
     state = {  }
     render() { 
         return ( 
             <div>
-                <section className="section section--first section--bg homecolor" ><div className="container">
+                <section className="section section--first section--bg homecolor p-0" ><div className="container">
                     <div className="row">
                         <div className="col-12">
                             <div className="section__wrap">
-                                <h2 className="section__title">Catalog grid</h2>
-                                <ul className="breadcrumb homecolor"><li className="breadcrumb__item"><a href="#">Home</a></li>
-                                    <li className="breadcrumb__item breadcrumb__item--active">Catalog grid</li>
+                                <h2 className="section__title">Danh sách phim</h2>
+                                <ul className="breadcrumb homecolor"><li className="breadcrumb__item"><Link to="home/">Trang chủ</Link></li>
+                                    <li className="breadcrumb__item breadcrumb__item--active">Danh sách phim</li>
                                 </ul></div>
                         </div>
                     </div>
@@ -42,7 +42,7 @@ class MovieCatalog extends Component {
 							</div>
 
 							<div class="filter__item" id="filter__year">
-								<span class="filter__item-label">RELEASE YEAR:</span>
+								<span class="filter__item-label">NĂM SẢN XUẤT:</span>
 
 								<div class="filter__item-btn dropdown-toggle" role="button" id="filter-year" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class="filter__range">
@@ -59,7 +59,7 @@ class MovieCatalog extends Component {
 
 						</div>
 
-						<button class="filter__btn" type="button">apply filter</button>
+						<button class="filter__btn" type="button">Tìm kiếm</button>
 
 					</div>
 				</div>

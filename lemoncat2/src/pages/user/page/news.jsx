@@ -9,7 +9,7 @@ class NewsDetail extends Component {
                 <div className="container">
                     <div className="row">
                     <div className="col-12 col-lg-8 col-xl-8 content__head container">
-                        <h2 className="content__title">Discover</h2>
+                        <h2 className="content__title">Tựa</h2>
                             <div className="container">
                             <div className="card card--details card--series homecolor border-0">
                             <div className="row">
@@ -33,8 +33,9 @@ class NewsDetail extends Component {
                             </div>
                         </div>
                             </div>
-                            <hr/>
+                            <hr className="newshr"/>
                             <CommentNews/>
+
                         </div>
                         <div className="col-12 col-lg-3 col-xl-3 ">
 						<div className="col-12">
@@ -81,7 +82,11 @@ class NewsDetail extends Component {
 					</div>
                     </div>
                 </div>
-                </section>
+                <div className="container">
+				<h2 className="section__title">Tin tức mới nhất</h2>
+					<NewsSection/>
+				</div>
+				</section>
                 
             </div>
 
@@ -89,13 +94,47 @@ class NewsDetail extends Component {
     }
 }
 
+class NewsSection extends Component {
+	state = {  }
+	render() { 
+		return (         
+		<div class="row">
+
+		{/* Item */}
+		<div class="col-sm-6">
+			<div class="card homecolor border-0 mr-2">
+			<div class="row">
+				<div class=" col-sm-6">
+					<img src={cover} className=" mx-auto d-block w-75 h-75"/>
+					
+				</div>
+				<div class=" col-sm-6">  
+				<div class="card-body">
+				   
+					<div className="text-light" >
+						<h3 className="text-light">It is a long established fact that a reader.</h3>
+						<small className="text-light">09/09/2020</small>
+					</div>
+
+					<button className="sign__btn" type="button">Đọc thêm →</button>
+
+				</div>
+				</div>
+
+				</div>
+			</div>
+		</div>
+		</div> );
+	}
+}
+
 
 class CommentNews extends Component {
-	state = { logIn: false }
+	state = { logIn: true }
 	render() { 
 		return ( 							
-		<div className="ml-1">
-            <h3 className="text-danger">Bình luận</h3>
+		<div className="ml-1 p-3">
+            <h4 className="text-light mb-3">Bình luận</h4>
 		<div className="comments">
 			{/* Hey listen */}
 			<ul className="comments__list">
@@ -107,14 +146,8 @@ class CommentNews extends Component {
 						</div>
 						<p className="comments__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 						<div className="comments__actions">
-							<div className="comments__rate">
-								<button type="button"><i className="icon ion-md-thumbs-up"></i>12</button>
 
-								<button type="button">7<i className="icon ion-md-thumbs-down"></i></button>
-							</div>
-
-							<button type="button"><i className="icon ion-ios-share-alt"></i>Reply</button>
-							<button type="button"><i className="icon ion-ios-quote"></i>Quote</button>
+							<button type="button"><i className="icon ion-ios-trash"></i>Xóa</button>
 						</div>
 					</li>
 					<li className="comments__item">
@@ -125,14 +158,6 @@ class CommentNews extends Component {
 						</div>
 						<p className="comments__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
 						<div className="comments__actions">
-							<div className="comments__rate">
-								<button type="button"><i className="icon ion-md-thumbs-up"></i>12</button>
-
-								<button type="button">7<i className="icon ion-md-thumbs-down"></i></button>
-							</div>
-
-							<button type="button"><i className="icon ion-ios-share-alt"></i>Reply</button>
-							<button type="button"><i className="icon ion-ios-quote"></i>Quote</button>
 						</div>
 					</li>
 
@@ -141,8 +166,8 @@ class CommentNews extends Component {
 				{
 					this.state.logIn === true ? 				
 					<form action="#" className="form">
-					<textarea id="text" name="text" className="form__textarea" placeholder="Add comment"></textarea>
-					<button type="button" className="form__btn">Send</button>
+					<textarea id="text" name="text" className="form__textarea" placeholder="Bình luận ..."></textarea>
+					<button type="button" className="form__btn">Đăng</button>
 					</form>
 					:
 					<button className="sign__btn" type="button">Đăng nhập để có thể bình luận</button>
