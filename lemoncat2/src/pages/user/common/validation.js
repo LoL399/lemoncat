@@ -23,6 +23,13 @@ function passValidation(val){
         return "Mật khẩu phải từ 8 chữ bao gồm có một kí tự hoa và ít nhất 1 ký tự số"
 
 }
+function confirmPassValidation(val,reval){
+    if(val == reval)
+        return ""
+    else
+        return "Mật khẩu không giống"
+
+}
 
 
-export {emailValidation, phoneValidation, passValidation}
+export {emailValidation, phoneValidation, passValidation, confirmPassValidation}

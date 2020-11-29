@@ -6,12 +6,12 @@ class MovieCatalog extends Component {
     render() { 
         return ( 
             <div>
-                <section className="section section--first section--bg homecolor p-0" ><div className="container">
+                <section className="section section--first section--bg homecolor p-3" ><div className="container">
                     <div className="row">
                         <div className="col-12">
                             <div className="section__wrap">
                                 <h2 className="section__title">Danh sách phim</h2>
-                                <ul className="breadcrumb homecolor"><li className="breadcrumb__item"><Link to="home/">Trang chủ</Link></li>
+                                <ul className="breadcrumb homecolor"><li className="breadcrumb__item"><Link to="/home/">Trang chủ</Link></li>
                                     <li className="breadcrumb__item breadcrumb__item--active">Danh sách phim</li>
                                 </ul></div>
                         </div>
@@ -25,10 +25,10 @@ class MovieCatalog extends Component {
 					<div class="filter__content">
 						<div class="filter__items">
 
-							<div class="filter__item" id="filter__rate">
+							<div class="filter__item">
 								<span class="filter__item-label">IMBd:</span>
 
-								<div class="filter__item-btn dropdown-toggle" role="button" id="filter-rate" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<div class="filter__item-btn dropdown-toggle" role="button"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class="filter__range">
 										<div id="filter__imbd-start"></div>
 										<div id="filter__imbd-end"></div>
@@ -37,12 +37,44 @@ class MovieCatalog extends Component {
 								</div>
 
 								<div class="filter__item-menu filter__item-menu--range dropdown-menu" aria-labelledby="filter-rate">
-									<div id="filter__imbd"></div>
+									<div></div>
 								</div>
 							</div>
 
-							<div class="filter__item" id="filter__year">
+							<div class="filter__item" >
 								<span class="filter__item-label">NĂM SẢN XUẤT:</span>
+
+								<div class="filter__item-btn dropdown-toggle" role="button" id="filter-year" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<div class="filter__range">
+										<div id="filter__years-start"></div>
+										<div id="filter__years-end"></div>
+									</div>
+									<span></span>
+								</div>
+
+								<div class="filter__item-menu filter__item-menu--range dropdown-menu" aria-labelledby="filter-year">
+									<div id="filter__years"></div>
+								</div>
+							</div>
+							
+							<div class="filter__item">
+								<span class="filter__item-label">THỂ LOẠI:</span>
+
+								<div class="filter__item-btn dropdown-toggle" role="button" id="filter-year" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<div class="filter__range">
+										<div id="filter__years-start"></div>
+										<div id="filter__years-end"></div>
+									</div>
+									<span></span>
+								</div>
+
+								<div class="filter__item-menu filter__item-menu--range dropdown-menu" aria-labelledby="filter-year">
+									<div id="filter__years"></div>
+								</div>
+							</div>
+							
+							<div class="filter__item" >
+								<span class="filter__item-label">GIẢI THƯỞNG:</span>
 
 								<div class="filter__item-btn dropdown-toggle" role="button" id="filter-year" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 									<div class="filter__range">

@@ -6,9 +6,13 @@ import Rating  from 'material-ui-rating'
 import bg from '../common/images/home-home__bg.jpg'
 
 class MovieDetail extends Component {
-	state = { isLogin: false }
+	state = { isLogin: true, readMore: false }
 	componentDidMount(){
 
+	}
+
+	readMoreBtn(){
+		this.state.readMore === false ? this.setState({readMore: true}) : this.setState({readMore: false})
 	}
 
     render() { 
@@ -48,10 +52,17 @@ class MovieDetail extends Component {
 										<li><span>Country:</span> <a href="#">USA</a> </li>
 									</ul>
 
-									<div className="b-description_readmore_wrapper js-description_readmore_wrapper" ><div className="card__description card__description--details b-description_readmore_ellipsis" >
+									<div className="b-description_readmore_wrapper js-description_readmore_wrapper" ><div className={ this.state.readMore === false ? "card__description card__description--details b-description_readmore_ellipsis detailReadmore":"card__description card__description--details b-description_readmore_ellipsis" }  >
+										It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+										It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+										It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+										It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+										It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+										It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+										It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 										It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
 									</div>
-									<div className="b-description_readmore_button"></div>
+									<div className="b-description_readmore_button" onClick={()=>this.readMoreBtn()}></div>
 									</div>
 								</div>
 							</div>
@@ -253,7 +264,7 @@ class ReviewArea extends Component {
 
 					</div>
 					{/* Reply */}
-					<li class="comments__item comments__item--answer">
+					{/* <li class="comments__item comments__item--answer">
 						<div class="comments__autor">
 							<img class="comments__avatar" src="images/img-user.svg" alt=""/>
 							<span class="comments__name">John Doe</span>
@@ -263,20 +274,9 @@ class ReviewArea extends Component {
 						<div class="comments__actions">
 
 							<button type="button"><i class="icon ion-ios-share-alt"></i>Xóa</button>
-							<button type="button"><i class="icon ion-ios-quote"></i>Quote</button>
 						</div>
-					</li>
+					</li> */}
 
-					<li className="reviews__item">
-						<div className="reviews__autor">
-							<img className="reviews__avatar" src="images/img-user.svg" alt=""/>
-							<span className="reviews__name">Best Marvel movie in my opinion</span>
-							<span className="reviews__time">24.08.2018, 17:53 by John Doe</span>
-
-							<span className="reviews__rating"><i className="icon ion-ios-star"></i>9.0</span>
-						</div>
-						<p className="reviews__text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
-					</li>
 				</ul>
 
 			<div className="reviews">

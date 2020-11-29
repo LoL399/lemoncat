@@ -2,26 +2,38 @@ import React, { Component } from 'react';
 import logo from "../common/Catlogo.png";
 import { Link } from "react-router-dom";
 import $ from 'jquery';
-import {emailValidation, passValidation, phoneValidation} from '../common/validation.js'
-
+import {emailValidation, passValidation, phoneValidation, confirmPassValidation as reEnter} from '../common/validation.js'
+import FacebookLogin from 'react-facebook-login';
 class RegistryUser extends Component {
-	state = { username:"", email: "", password: "", phone: "",  emailValidate: "", passValidate: "", phoneValide: ""}
+	state = { username:"", email: "", password: "", phone: "",  emailValidate: "", passValidate: "", phoneValide: "", comfirmPassValid: "", rePass: ""}
 	
 	componentDidMount(){
 		$(document).ready(function(){
 			$('[data-toggle="tooltip"]').tooltip();
 		  });
 	}
+
+	componentWillUnmount(){
+		
+	}
 	handleChange = event => {
 		this.setState({[event.target.name]: event.target.value});
 		this.validateForm();
+
+
 	}
 
-	validateForm(){
+	validateForm=()=>{
 		this.state.emailValidate = emailValidation(this.state.email);
 		this.state.passValidate = passValidation(this.state.password);
 		this.state.phoneValide = phoneValidation(this.state.phone);
-
+		if(this.state.rePass.localeCompare(this.state.password)===0)
+		{
+			this.setState({comfirmPassValid: "Mật khẩu không giống"})
+		}
+		else
+			this.setState({comfirmPassValid: ""})
+		
 	}
 
     render() { 
@@ -45,6 +57,9 @@ class RegistryUser extends Component {
 							<div className="sign__group">
 								<input type="password" data-toggle="tooltip" title={this.state.passValidate} 
 								className={this.state.passValidate === "" ? "sign__input" : "sign__input border border-danger"} placeholder="Password" name="password" onChange={this.handleChange} value={this.state.password}/></div>
+							<div className="sign__group">
+								<input type="password" data-toggle="tooltip" title={this.state.comfirmPassValid} 
+								className={this.state.comfirmPassValid === "" ? "sign__input" : "sign__input border border-danger"} placeholder="Nhập lại password để xác nhận" name="rePass" onChange={this.handleChange} value={this.state.rePass}/></div>
 
                                 <div className="sign__group">
 								<input type="text" data-toggle="tooltip" title={this.state.phoneValide} 
@@ -58,6 +73,7 @@ class RegistryUser extends Component {
 								<a data-toggle="tooltip" title="Đăng ký bằng facebook!"><i className="icon ion-logo-facebook"></i></a></li>
 								<li className="twitter"><a data-toggle="tooltip" title="Đăng ký bằng google!"><i className="icon ion-logo-google"></i></a></li>
 							</ul>
+							<FacebookButton/>
 
 							<span className="sign__text">Đã có tài khoản? <Link to="/home/login">Đăng nhập thôi!</Link></span>
 
@@ -71,5 +87,26 @@ class RegistryUser extends Component {
 	</div>  );
     }
 }
+
+class FacebookButton extends Component {
+	state = {  }
+	
+	render() {
+		const responseFacebook = (response) => {
+			console.log(response);
+		}
+		return ( 
+			<FacebookLogin
+			appId="1095214214266196"
+			autoLoad={false}
+			callback={responseFacebook}
+			render={renderProps => (
+				<button onClick={renderProps.onClick}>This is my custom FB button</button>
+			  )}
+			fields="name,email,picture" />
+		 );
+	}
+}
  
+
 export default RegistryUser;

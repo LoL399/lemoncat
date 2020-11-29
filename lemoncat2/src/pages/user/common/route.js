@@ -8,6 +8,7 @@ import RecoverPass from '../page/recoverpass';
 import RegistryUser from '../page/registry';
 import NewsCatalog from '../page/catalognews';
 import UserPage from '../page/userPage';
+import SearchPage from '../page/searchcatalog';
 
 const home = "/home";
 
@@ -21,6 +22,7 @@ const routes = [
     {path: home+"/forgot", exact : true, name: "Forgot pass", component: RecoverPass },
     {path: home+"/paper", exact : true, name: "News Catalog", component: NewsCatalog },
     {path: home+"/profile", exact : true, name: "User Profile", component: UserPage },
+    {path: home+"/search", exact : true, name: "Search", component: SearchPage },
 
 ];
 export default routes;

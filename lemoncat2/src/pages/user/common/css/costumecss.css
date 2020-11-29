@@ -73,3 +73,15 @@ body,html,#root{
   border: 0;
   height: 1px;
   }
+.detailReadmore
+{
+  height: 200px;
+  max-height: 200px;
+  overflow: hidden;
+}
+.avatar {
+  vertical-align: middle;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}

@@ -6,12 +6,12 @@ class NewsCatalog extends Component {
     render() { 
         return ( 
             <div>
-            <section className="section section--first section--bg homecolor p-0" ><div className="container">
+            <section className="section section--first section--bg homecolor p-3" ><div className="container">
                 <div className="row">
                     <div className="col-12">
                         <div className="section__wrap">
                             <h2 className="section__title">Tin mới nhất hôm nay</h2>
-                            <ul className="breadcrumb homecolor"><li className="breadcrumb__item"><Link to="home/">Trang chủ</Link></li>
+                            <ul className="breadcrumb homecolor"><li className="breadcrumb__item"><Link to="/home/">Trang chủ</Link></li>
                                 <li className="breadcrumb__item breadcrumb__item--active">Tin tức mới</li>
                             </ul></div>
                     </div>
@@ -19,8 +19,36 @@ class NewsCatalog extends Component {
             </div>
         </section>
         <div class="filter">
-         <div class="container">
-        </div>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="filter__content">
+						<div class="filter__items">
+							<div class="filter__item">
+								<span class="filter__item-label">PHÂN LOẠI:</span>
+
+								<div class="filter__item-btn dropdown-toggle" role="button" id="filter-year" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<div class="filter__range">
+										<div id="filter__years-start"></div>
+										<div id="filter__years-end"></div>
+									</div>
+									<span></span>
+								</div>
+
+								<div class="filter__item-menu filter__item-menu--range dropdown-menu" aria-labelledby="filter-year">
+									<div id="filter__years"></div>
+								</div>
+							</div>
+
+
+						</div>
+
+						<button class="filter__btn" type="button">Tìm kiếm</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
         </div>
 <div class="catalog">
 
@@ -67,7 +95,7 @@ class NewsCatalog extends Component {
                         <img src={cover} className=" mx-auto d-block w-75 h-75"/>
                         
                     </div>
-                    <div class=" col-sm-6">  
+                    <div class=" col-sm-6">     
                     <div class="card-body">
                        
                         <div className="text-light" >

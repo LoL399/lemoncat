@@ -31,35 +31,7 @@ class UserPage extends Component {
         return ( 
             <div className="h-100">
             <section className="section details homecolor border-0 ">
-                <div className="content__head container">
-                    <div className="row">
-                    <div className="row mt-5 align-items-center">
-                <div className="col-md-3 text-center mb-5">
-                  <div className="avatar avatar-xl">
-                    <img src={cover} alt="..." className="avatar-img rounded-circle"/>
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="row align-items-center">
-                    <div className="col-md-7">
-                      <h4 className="mb-1 labelGradient">Brown, Asher</h4>
-                      <p className="small mb-3"><span className="badge badge-dark">New York, USA</span></p>
-                    </div>
-                  </div>
-                  <div className="row mb-4">
-                    <div className="col-md-7">
-                      <p className="text-muted"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus. In hac habitasse platea dictumst. Cras urna quam, malesuada vitae risus at, pretium blandit sapien. </p>
-                    </div>
-                    <div className="col">
-                      <p className="small mb-0 text-muted">Nec Urna Suscipit Ltd</p>
-                      <p className="small mb-0 text-muted">P.O. Box 464, 5975 Eget Avenue</p>
-                      <p className="small mb-0 text-muted">(537) 315-1481</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-                    </div>
-                </div>
+
                 {/*ultilities */}
                 <div className="container">
                 <div className="row my-4">
@@ -75,9 +47,9 @@ class UserPage extends Component {
                         </div> 
                         <div className="col">
                           <a href="#">
-                            <h3 className="mt-4 mb-1 labelGradient">Personal</h3>
+                            <h3 className="mt-4 mb-1 labelGradient">Thông tin cá nhân tài khoản</h3>
                           </a>
-                          <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus.</p>
+                          <p className="text-muted">Thay đổi các thông tin liên lạc.</p>
                         </div> 
                       </div> 
                       <button className="sign__btn" type="button" onClick={()=>this.infoHandler(true,1)}>Chỉnh sửa thông tin cá nhân</button>
@@ -97,9 +69,9 @@ class UserPage extends Component {
                         </div> 
                         <div className="col">
                           <a href="#">
-                            <h3 className=" mt-4 mb-1 labelGradient">Security</h3>
+                            <h3 className=" mt-4 mb-1 labelGradient">Bảo mật tài khoản</h3>
                           </a>
-                          <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus.</p>
+                          <p className="text-muted">Thay đổi mật khẩu của tài khoản</p>
                         </div> 
                       </div> 
                       <button className="sign__btn" type="button" onClick={()=>this.infoHandler(true,2)}>Thay đổi mật khẩu</button>
@@ -120,9 +92,9 @@ class UserPage extends Component {
                         </div> 
                         <div className="col">
                           <a href="#">
-                            <h3 className="labelGradient mt-4 mb-1">Notifications</h3>
+                            <h3 className="labelGradient mt-4 mb-1">Nhật kí hoạt động</h3>
                           </a>
-                          <p className="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit nisl ullamcorper, rutrum metus in, congue lectus.</p>
+                          <p className="text-muted">Nhật kí hoạt động của tài khoản.</p>
                         </div> 
                       </div>
                       <button className="sign__btn" type="button" onClick={()=>this.infoHandler(true,3)}>Xem nhật ký hoạt động</button>
@@ -178,18 +150,22 @@ class InfoChange extends Component {
 
                 <form action="#" className=" mt-3 mb-3">
                 <h3 className="text-white mb-4">Chỉnh thông tin cá nhân</h3>
+                <div className="sign__group d-block mx-auto w-50">
+                <img src={cover} alt="..." className="avatar"/>
+                </div>
+                <div className="sign__group d-block mx-auto w-50">
+                <span className="text-light">Thêm ảnh mới + </span></div>
+
                 <div className="sign__group">
                 <input type="text" className="sign__input" placeholder="UserName"/></div>
+
 
                 <div className="sign__group">
                     <input type="text" className="sign__input" placeholder="Email"/></div>
 
-                <div className="sign__group">
-                    <input type="password" className="sign__input" placeholder="Password"/></div>
-
                     <div className="sign__group">
                     <input type="text" className="sign__input" placeholder="Phone Number"/></div>
-                <button className="sign__btn" type="button">Tạo tài khoản</button>
+                <button className="sign__btn" type="button">Thay đổi</button>
             </form>
 
 
