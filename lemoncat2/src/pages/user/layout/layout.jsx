@@ -19,7 +19,8 @@ import routes from"../common/route"
 class ClientPage extends Component {
     state = {  }
     render() { 
-        return ( <div className="homecolor">
+        return ( 
+        <div className="homecolor">
             <NavBar/>
 
                 <Switch>
