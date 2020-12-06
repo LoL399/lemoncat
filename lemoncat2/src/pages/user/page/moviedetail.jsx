@@ -26,7 +26,7 @@ class MovieDetail extends Component {
 					<div className="card card--details card--series homecolor border-0">
 						<div className="row">
 						<div className="col-12">
-					    <h1 className="details__title">I Dream in Another Language</h1>
+					    <h1 className="details__title ">I Dream in Another Language</h1>
 				    	</div>
 							<div className="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-3">
 								<div className="card__cover">

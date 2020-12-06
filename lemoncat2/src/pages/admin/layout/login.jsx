@@ -1,31 +1,50 @@
 import React, { Component } from 'react';
-
+import loginservice from '../service/loginservice';
+import Cookies from "js-cookie";
+import jwt from 'jwt-simple';
+import cookieUlti from '../common/cookieUlti';
 class Login extends Component {
     state = {  
         message:''
     };
-
     usernameRef = React.createRef();
     passwordRef = React.createRef();
-    // login = ()=>{
-    //     const username=this.usernameRef.current.value;
-    //     const password=this.passwordRef.current.value;
-    //     UserService.login(username,password).then(res =>{
-    //         if(res.data.errorCode > 0){
-    //             this.setState({message: res.data.message});
-    //         }else{
-    //             //redirec to dashboard
+    componentDidMount(){
+        this.checkLogin();
+    }
+    checkLogin(){
+        if(cookieUlti.getCookie("loginInfo")!==null)
+        {
+            this.props.history.push("/admin");
+            this.props.history.go(0);
+        }
+    }
 
-    //             this.setState({message:""});
+
+    login = ()=>{
+        const data = {
+            email: this.usernameRef.current.value,
+            password: this.passwordRef.current.value
+        }
+
+        loginservice.login(data).then(res =>{ 
+            console.log(res)
+
+                //redirec to dashboard
+
+                this.setState({message:""});
                 
-    //             //luu cookie  //expires:1 
-    //             Cookies.set("loginInfo",JSON.stringify(res.data.data),{expires:1});  //JSON.stringify: ep du lieu thanh chuo json
-    //             this.props.history.push("/instructors"); // quay ve trang duoc chi dinh
-    //         }
-    //     })
+                //luu cookie  //expires:1 
+                let token = jwt.encode(data, res.data);
+                
+                Cookies.set("loginInfo",token,{expires:1});  
+                console.log(cookieUlti.getCookie("loginInfo"))
 
-    //     //console.log(username,password); kiem tra da nhan duoc gia tri hay chua
-    // }
+
+        }).catch(()=>this.setState({message: "Account no found"}))
+
+        //console.log(username,password); kiem tra da nhan duoc gia tri hay chua
+    }
     render() { 
         return ( 
             <div class="h-100">

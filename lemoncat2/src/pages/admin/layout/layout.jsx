@@ -19,7 +19,10 @@ import SibeBar from './sidebar';
 import routes from"../common/route"
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import Navbar from './navbar';
-
+import PrivateRoute from "../common/PrivateRoute"
+import NoAuth from '../../Other/401';
+import cookieUlti from '../common/cookieUlti';
+import jwt from 'jwt-simple';
 class AdminPage extends Component {
     state = { collapsed: false }
     logOutConfirm=()=>{
@@ -63,18 +66,30 @@ class AdminPage extends Component {
 
                             <Switch>
                             {routes.map((route,idx)=>{
-                                return route.component ? (       //toan tu 3 ngoi
-                                    <Route 
-                                        key={idx}
-                                        path={route.path}
-                                        exact={route.exact}
-                                        name={route.name}
-                                        component={route.component}
-                                    />
-                                ):null;
-                            })
+                                if(cookieUlti.getCookie("loginInfo")!==null)
+                                {
+                                    return route.component ? (       //toan tu 3 ngoi
+                                        <Route 
+                                            key={idx}
+                                            path={route.path}
+                                            exact={route.exact}
+                                            name={route.name}
+                                            component={route.component}
+                                        />
+                                    ):null;
+
+                                }
+                                else
+                                {
+                                    return(
+                                        <Redirect exact to="/401" component={NoAuth}/>
+                                    )}
+
+                                }
+
+                            )
                             }
-                        <Redirect exact to="/admin/"/> 
+                        <Redirect exact to="/login"/> 
                         </Switch>
                      
                     </div>

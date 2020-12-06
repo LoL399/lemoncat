@@ -6,95 +6,130 @@ import { Modal } from 'react-bootstrap';
 import Dialog from 'react-bootstrap-dialog';
 import { Editor } from '@tinymce/tinymce-react'
 import createtable from '../common/datatable';
+import Wait from '../../Other/LoadingScreen';
+import newsservice from '../service/newsservice';
 class News extends Component {
-    state = { modalState: false,modalType: 0, viewFlag: false}
+  state = { newslist: null }
 
-    componentDidMount(){
+  componentDidMount(){
+    this.loadData();
 
-      createtable();
+    
     }
+  
+    loadData(){
+      newsservice.list().then(res => {this.setState({newslist: res.data}); console.log(res)})
 
-    setModalState=(type,addModal)=>{
-      this.setState({viewFlag: addModal})
-      this.setState({modalType: type})
-      this.state.modalState===false ? this.setState({modalState: true}) : this.setState({modalState: false})
-    }
+    }  
+    
 
-    removeConfirm=id=>{
-      this.dialog.show({
-        title: 'Confimation',
-        body: 'Are you want to delete this major?',
-        actions: [
-          Dialog.CancelAction(),
-          Dialog.OKAction(() => {
-          })
-        ],
-        bsSize: 'small',
-        onHide: (dialog) => {
-          dialog.hide()
-          console.log('closed by clicking background.')
-        }
-      })
-      
-    }
+  render() { 
+      return ( 
+          <div className="row justify-content-center">
+          {this.state.newslist === null ? <Wait/> : <LoadData newslist={this.state.newslist}/>}
+      </div>
+      );
+  }
+}
+
+class LoadData extends Component {
+  state = { modalState: false,modalType: 0, viewFlag: false, newsdetail: {} }
+  componentDidMount(){
+
+    createtable();
+  }
+  
 
 
-    render() { 
-        return ( 
-            <div className="row justify-content-center">
-        <div className="col-12">
-          <div className="row mb-4 items-align-center">
-            <h2 className="mb-2 page-title">News control</h2>
-              <div className="col-md-auto ml-auto text-right">
-                <button type="button" className="btn"><span className="fe fe-refresh-ccw fe-24 text-muted" ></span></button>
-                <button type="button" className="btn" onClick={()=>this.setModalState(0, false)}><span className="fe fe-plus fe-24 text-muted text-primary" ></span></button>
-              </div>
-            </div>
-          <div className="row my-4">
+  setModalState=(addModal, data)=>{
+    this.setState({viewFlag: addModal})
 
-            <div className="col-md-12">
-              <div className="card shadow">
-                <div className="card-body">
-                <table className="table datatables display">
-                        <thead>
-                          <tr>
-                            <th>#</th>
-                            <th>Header</th>
-                            <th>Author</th>
-                            <th>Create date</th>
-                            <th>update date</th>
-                            <th>Action</th>
-                            
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
+    if(data === null)
+  
+      this.setState({newsdetail: {}})
+    else
+      this.setState({newsdetail: data})
+    this.state.modalState===false ? this.setState({modalState: true}) : this.setState({modalState: false})
+  }
 
-                            <td>368</td>
-                            <td>Movies of 2021</td>
-                            <td>Donald Trump</td>
-                            <td>12/12/21 </td>
-                            <th> - </th>
+
+  removeConfirm=id=>{
+    this.dialog.show({
+      title: 'Confimation',
+      body: 'Are you want to delete this major?',
+      actions: [
+        Dialog.CancelAction(),
+        Dialog.OKAction(() => {
+        })
+      ],
+      bsSize: 'small',
+      onHide: (dialog) => {
+        dialog.hide()
+        console.log('closed by clicking background.')
+      }
+    })
+    
+  }
+  render() { 
+    return (         
+    <div className="col-12">
+    <div className="row mb-4 items-align-center">
+      <h2 className="mb-2 page-title">News control</h2>
+        <div className="col-md-auto ml-auto text-right">
+          <button type="button" className="btn"><span className="fe fe-refresh-ccw fe-24 text-muted" ></span></button>
+          <button type="button" className="btn" onClick={()=>this.setModalState(false,{})}><span className="fe fe-plus fe-24 text-muted text-primary" ></span></button>
+        </div>
+      </div>
+    <div className="row my-4">
+
+      <div className="col-md-12">
+        <div className="card shadow">
+          <div className="card-body">
+          <table className="table datatables display">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Header</th>
+                      <th>Author</th>
+                      <th>Create date</th>
+                      <th>Action</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {
+                    this.props.newslist.map((news,idx)=>{
+                            return (
+                            <tr key={idx}>
+                            <td>{news._id}</td>
+                            <td>{news.name}</td>
+                            <td>{news.byUser}</td>
+                            <td>{news.createdAt}</td>
                             <td><button className="btn btn-sm dropdown-toggle more-horizontal" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span className="text-muted sr-only">Action</span>
                               </button>
                               <div className="dropdown-menu dropdown-menu-right">
-                                <a className="dropdown-item text-warning pointercursor"onClick={()=>this.setModalState(0, true)}>Edit</a>
-                                <a className="dropdown-item text-danger pointercursor" onClick={()=>this.removeConfirm(1)}>Disable</a>
-                                <a className="dropdown-item text-primary pointercursor"  onClick={()=>this.setModalState(1,false)}>Activities</a>
+                                <a className="dropdown-item text-warning pointercursor" onClick={()=>this.setModalState(true, news)}>Edit</a>
+                                <a className="dropdown-item text-danger pointercursor" onClick={()=>this.removeConfirm(0)}>Disable</a>
+                                <a className="dropdown-item text-primary pointercursor" onClick={()=>this.setModalState(1,false)}>Activities</a>
+
                               </div>
                             </td>
-                          </tr>
+                            </tr>
+                            )
+                          })
+                        }
 
-                        </tbody>
-                      </table>
-                  
-                </div>
-              </div>
-            </div> 
-          </div> 
-        </div> 
-        {/*  */}
+
+                  </tbody>
+                </table>
+         
+            
+          </div>
+        </div>
+      </div> 
+    </div> 
+      {/*  */}
       <Modal
         size="lg"
         show={this.state.modalState}
@@ -107,27 +142,110 @@ class News extends Component {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {this.state.modalType === 0 ? <NewsDetail viewDetails={this.state.viewFlag}/> : <ActivitiesDetail/>}
+          {this.state.modalType === 0 ? <NewsDetail viewDetails={this.state.viewFlag} airdrop={this.state.newsdetail}/>  : <ActivitiesDetail/>}
         </Modal.Body>
       </Modal>
       {/* Dialog remove */}
-      <Dialog ref={(el) => { this.dialog = el }} />
-      </div>
-        );
-    }
+      <Dialog ref={(el) => { this.dialog = el }} /> 
+        </div> 
+      );
+  }
 }
 
 class NewsDetail extends Component {
-    state = { viewDetails: true }
-    constructor(props)
-    {super(props);
-      this.state.viewDetails = this.props.viewDetails;
-      console.log(this.props.viewDetails)
-    }
+  state = { viewDetails: true, 
+            byUser:"",
+            name: "",
+            content: "",
+            category: "",
+            // like: [],
+            active: "",
+            //tag:"",
+            isEdit: false}
 
-    toEdit(){
-      this.state.viewDetails===false? this.setState({viewDetails: true}): this.setState({viewDetails: false})
+  componentDidMount(){
+    this.setState({viewDetails : this.props.viewDetails});
+    this.loadData(this.props.airdrop)
+    console.log(this.props.viewDetails)
+  }
+  toEdit(){
+      this.state.viewDetails===false? this.setState({viewDetails: true}): this.setState({viewDetails: false});
+      if(!this.state.viewDetails)
+      {
+        this.loadData(this.props.airdrop);
+      }
+      else
+      {
+        this.setState({isEdit: true});
+      }
+  }
+  submitForm(id){
+    const data = {
+      byUser: this.state.byUser,
+      name: this.state.name,
+      content: this.state.content,
+      category: this.state.category,
+      active: this.state.active,
     }
+    if(this.state.isEdit)
+    {
+      console.log("Only edit")
+      // console.log(data)
+      newsservice.update(id,data).then(res => {console.log(res)})
+    }
+    else
+    {
+      console.log("New",data)
+      newsservice.add(data).then(res =>{
+        console.log(res)
+      } )
+
+    }
+  }
+  handleEditorChange=e=>{
+    console.log('Content was updated:', e.target.getContent());
+    this.setState({content: e.target.getContent()});
+  }
+  
+handleChange = event => {
+  if(event.target.name === "poster")
+  {
+    console.log(event.target.files[0])
+    const reader = new FileReader();
+    reader.readAsDataURL(event.target.files[0])
+    reader.onload = function () {
+      this.setState({[event.target.name]:(reader.result)})}.bind(this)
+  }
+  else if(event.target.name === "photos")
+  {
+    let collection = [];
+    (Array.isArray(this.state.photos) && this.state.photos.length) === false ? collection = [] : collection = this.state.photos;
+
+    Array.from(event.target.files).forEach(element => {
+      const reader = new FileReader();
+      reader.readAsDataURL(element)
+      reader.onload = function () {
+        collection.push(reader.result)}.bind(this)}
+      );
+      this.setState({photos: collection});
+    console.log(collection)
+
+  }
+  else
+  this.setState({[event.target.name]: event.target.value});
+  console.log(event.target.value)
+  // this.validateForm();
+}
+  loadData(props){
+    this.setState({id : props._id})
+    this.setState({byUser : props.byUser});
+    this.setState({name : props.name});
+    this.setState({content : props.content});
+    this.setState({category : props.category});
+    this.setState({active : props.active});
+    // this.setState({summary : props.summary});
+  }   
+  
     render() { 
         return ( 
             <form>
@@ -135,16 +253,11 @@ class NewsDetail extends Component {
             <div className="form-row">
                       <div className="form-group col-md-6">
                         <label>Article's header </label>
-                        <input type="email" className="form-control" placeholder="Enter the head description" name="header"/>
+                        <input className="form-control" placeholder="Enter the head description" name="name" value={this.state.name} onChange={this.handleChange}/>
                       </div>
                       <div className="form-group col-md-6">
                         <label for="Trailerlink">Author </label>
-                        <select className="custom-select" name="byUser">
-                            <option selected="">Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
+                        <input className="form-control" placeholder="Enter the head description" name="byUser" value={this.state.byUser} onChange={this.handleChange}/>
                       </div>
                     </div>
 
@@ -154,7 +267,8 @@ class NewsDetail extends Component {
                 <div className="ql-container ql-snow" >
                 <Editor
                     disabled={this.state.viewDetails}
-                    initialValue="<p>This is the initial content of the editor</p>"
+                    initialValue={this.state.content}
+                    onChange={this.handleEditorChange}
                     init={{
                     height: 500,
                     menubar: false,
@@ -174,10 +288,9 @@ class NewsDetail extends Component {
 
             </div>
               </fieldset>
-              {this.state.viewDetails===true?<button type="submit" className="btn btn-warning text-light" onClick={()=>this.toEdit()}>Edit</button>:<button type="submit" className="btn btn-primary">Add</button>}
-          {this.state.viewDetails===true?<button type="submit" className="btn btn-danger" onClick={()=>this.toEdit()}>Disable</button>:<button type="submit" className="btn btn-danger">Cancel</button>}
+              {this.state.viewDetails===true?<a className="btn btn-warning text-light" onClick={()=>this.toEdit()}>Edit</a>:<a onClick={()=>this.submitForm(this.state.id)} className="btn btn-primary text-light">Submit</a>}
+          {this.state.viewDetails===true?<a className="btn btn-danger text-light" onClick={()=>this.toEdit()}>Disable</a>:<a className="btn btn-danger text-light" onClick={()=>this.toEdit()}>Cancel</a>}
 
- 
           </form>
          );
     }
